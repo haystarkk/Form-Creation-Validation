@@ -11,36 +11,37 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById("password").value.trim();
 
         let isValid = true;
-        let messages = [];
+        const messages = [];
 
-        // Username validation
+        // ✅ Username Validation
         if (username.length < 3) {
             isValid = false;
             messages.push("Username must be at least 3 characters long.");
         }
 
-        // Email validation
+        // ✅ Email Validation
         if (!email.includes("@") || !email.includes(".")) {
             isValid = false;
-            messages.push("Email must include '@' and '.' characters.");
+            messages.push("Email must include both '@' and '.' characters.");
         }
 
-        // Password validation
+        // ✅ Password Validation
         if (password.length < 8) {
             isValid = false;
             messages.push("Password must be at least 8 characters long.");
         }
 
-        // Display feedback
-        feedbackDiv.style.display = "block";
+        // ✅ Feedback Display Logic
+        feedbackDiv.style.display = "block"; // Make visible
+
         if (isValid) {
             feedbackDiv.textContent = "Registration successful!";
-            feedbackDiv.style.color = "#28a745";
-            feedbackDiv.style.backgroundColor = "#d4edda";
+            feedbackDiv.style.color = "#28a745"; // Green
+            feedbackDiv.style.backgroundColor = "#d4edda"; // Optional success background
         } else {
             feedbackDiv.innerHTML = messages.join("<br>");
-            feedbackDiv.style.color = "#d8000c";
-            feedbackDiv.style.backgroundColor = "#ffbaba";
+            feedbackDiv.style.color = "#dc3545"; // Red
+            feedbackDiv.style.backgroundColor = "#ffbaba"; // Optional error background
         }
     });
 });
